@@ -7,7 +7,9 @@ public class Test00 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Hellow World!");
+        Rigidbody rigidbody;
+        rigidbody = gameObject.GetComponent<Rigidbody>();
+        rigidbody.useGravity = false;
     }
 
     // Update is called once per frame
