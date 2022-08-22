@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpaceShip : MonoBehaviour
 {
     public float speed =3f;
+    public float rot=90f;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,12 @@ public class SpaceShip : MonoBehaviour
         }
         if(Input.GetKey(KeyCode.LeftArrow)){
             transform.Translate(Vector2.left*speed*Time.deltaTime);
+        }
+        if(Input.GetKey(KeyCode.Z)){
+            transform.Rotate(0,0,rot*Time.deltaTime,Space.Self);
+        }
+        if(Input.GetKey(KeyCode.X)){
+            transform.Rotate(0,0,-rot*Time.deltaTime,Space.Self);
         }
     }
 }
