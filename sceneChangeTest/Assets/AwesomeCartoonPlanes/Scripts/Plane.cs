@@ -8,8 +8,11 @@ public class Plane : MonoBehaviour {
 	public GameObject propBlured;
 	public int moveSpeed = 15;
 	public bool engenOn;
+	public static Plane instance =null;
 	void Awake(){
-		DontDestroyOnLoad(gameObject);
+		if(instance ==null) instance = this;
+		else if(instance !=this) Destroy(this.gameObject);
+ 		DontDestroyOnLoad(gameObject);
 	}
 	void Update () 
 	{
