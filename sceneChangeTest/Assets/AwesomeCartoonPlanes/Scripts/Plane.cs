@@ -8,7 +8,9 @@ public class Plane : MonoBehaviour {
 	public GameObject propBlured;
 
 	public bool engenOn;
-
+	void Awake(){
+		DontDestroyOnLoad(gameObject);
+	}
 	void Update () 
 	{
 		if (engenOn) {
