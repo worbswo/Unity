@@ -12,8 +12,11 @@ public class AttackCtrl : MonoBehaviour
     }
 
     // Update is called once per frame
+    public void OnAttackBtn(){
+        mAvatar.SetTrigger("ATTACK");
+
+    }
     void Update()
     {
-        mAvatar.SetTrigger("ATTACK");
     }
 }
