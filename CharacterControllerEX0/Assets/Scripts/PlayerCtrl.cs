@@ -19,7 +19,9 @@ public class PlayerCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ///Vertical 키보드로부터 상하 키를 입력 받는다.(↑ or w, ↓ or s )
         moveDir.z = Input.GetAxis("Vertical") * speed;
+        /// Horizontal 키보드로부터 좌우 키를 입력 받는다.(← or a, → or d)
         transform.Rotate(0,Input.GetAxis("Horizontal")* rotation_speed,0);
         if(controller.isGrounded){
             moveDir.y = 0;
