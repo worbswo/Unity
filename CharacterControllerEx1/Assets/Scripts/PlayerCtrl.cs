@@ -55,4 +55,9 @@ public class PlayerCtrl : MonoBehaviour
         moveDir.y+= gravity*Time.deltaTime;
         controller.Move(globalDir*Time.deltaTime);
     }
+    void OnControllerColliderHit(ControllerColliderHit hit){
+        if(hit.collider.CompareTag("APPLE")){
+            Destroy(hit.gameObject,0.0f);
+        }
+    }
 }
