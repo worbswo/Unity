@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PlayerCtrl : MonoBehaviour
 {
     CharacterController controller;
@@ -11,11 +11,18 @@ public class PlayerCtrl : MonoBehaviour
     int rotation_speed = 2;
     float gravity = 0.0f;
     float jumpSpeed = 5;
+
+    Text numOApple;
+    GameObject txtObj;
+    int acquiredNum =0;
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        txtObj = GameObject.Find("NumText");
+        numOApple = txtObj.GetComponent<Text>();
+        numOApple.text = acquiredNum.ToString();
     }
 
     // Update is called once per frame
@@ -57,7 +64,9 @@ public class PlayerCtrl : MonoBehaviour
     }
     void OnControllerColliderHit(ControllerColliderHit hit){
         if(hit.collider.CompareTag("APPLE")){
+            acquiredNum+=1;
             Destroy(hit.gameObject,0.0f);
+            numOApple.text = acquiredNum.ToString();
         }
     }
 }
