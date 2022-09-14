@@ -33,6 +33,7 @@ public class CannonCtrl : MonoBehaviour
         if(Input.GetKey(KeyCode.Space)){
             if(Physics.Raycast(pos.transform.position,pos.transform.forward,out hit, 12.0f)){
                 Debug.Log(hit.collider.gameObject.name);
+                Debug.Log(hit.distance);
             }else{
                 Debug.Log("Nothing");
             }
