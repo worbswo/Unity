@@ -28,7 +28,7 @@ public class ObjPoolManager : MonoBehaviour
     }
     void MakeMissile(){
         GameObject objPools = new GameObject("ObjPools");
-        for(int i=0;i<maxNum++;i++){
+        for(int i=0;i<maxNum;i++){
             var poolObj = Instantiate<GameObject>(missileObj, objPools.transform);
             poolObj.SetActive(false);
             poolObj.name = "Missile_"+i.ToString("0");
