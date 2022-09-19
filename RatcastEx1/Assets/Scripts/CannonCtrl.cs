@@ -46,9 +46,10 @@ public class CannonCtrl : MonoBehaviour
         var mis = ObjPoolManager.instance.GetMissile();
         if(mis !=null){
             shootOk = false;
-            mPos = misGizmosObj.GetComponent<Transform>();
-            GameObject obj = Instantiate(missile,mPos.position,mPos.rotation);
-            Rigidbody rb = obj.GetComponent<Rigidbody>();
+            mis.transform.position = mPos.position;
+            mis.SetActive(true);
+            Rigidbody rb = mis.GetComponent<Rigidbody>();
+            rb.velocity = new Vector3(0,0,0);
             rb.AddForce(pos.transform.forward*500);
             yield return new WaitForSeconds(0.5f);
             shootOk = true;
