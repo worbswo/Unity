@@ -43,12 +43,15 @@ public class CannonCtrl : MonoBehaviour
         }
     }
     IEnumerator ShootMissile(){
-        shootOk = false;
-        mPos = misGizmosObj.GetComponent<Transform>();
-        GameObject obj = Instantiate(missile,mPos.position,mPos.rotation);
-        Rigidbody rb = obj.GetComponent<Rigidbody>();
-        rb.AddForce(pos.transform.forward*500);
-        yield return new WaitForSeconds(0.5f);
-        shootOk = true;
+        var mis = ObjPoolManager.instance.GetMissile();
+        if(mis !=null){
+            shootOk = false;
+            mPos = misGizmosObj.GetComponent<Transform>();
+            GameObject obj = Instantiate(missile,mPos.position,mPos.rotation);
+            Rigidbody rb = obj.GetComponent<Rigidbody>();
+            rb.AddForce(pos.transform.forward*500);
+            yield return new WaitForSeconds(0.5f);
+            shootOk = true;
+        }
     }
 }

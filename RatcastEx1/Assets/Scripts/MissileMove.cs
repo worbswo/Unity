@@ -14,7 +14,7 @@ public class MissileMove : MonoBehaviour
     void Update()
     {
         if(transform.position.z>30){
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
         }
     }
 }
