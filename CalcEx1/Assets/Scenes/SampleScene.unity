@@ -1054,7 +1054,7 @@ GameObject:
   - component: {fileID: 1590576482}
   - component: {fileID: 1590576481}
   m_Layer: 5
-  m_Name: input2
+  m_Name: Input2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
