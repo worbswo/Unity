@@ -31,17 +31,17 @@ public class Calc : MonoBehaviour
     public void OnPlusBtnClick(){
         input1 = inputObj1.GetComponent<InputField>();
         input2 = inputObj2.GetComponent<InputField>();
-        Sum(System.Convert.ToInt32(input1.text),System.Convert.ToInt32(input1.text));
+        Sum(System.Convert.ToInt32(input1.text),System.Convert.ToInt32(input2.text));
     }
     public void OnMinusBtnClick(){
         input1 = inputObj1.GetComponent<InputField>();
         input2 = inputObj2.GetComponent<InputField>();
-        Minus(System.Convert.ToInt32(input1.text),System.Convert.ToInt32(input1.text));
+        Minus(System.Convert.ToInt32(input1.text),System.Convert.ToInt32(input2.text));
     }
     public void OnMultiBtnClick(){
         input1 = inputObj1.GetComponent<InputField>();
         input2 = inputObj2.GetComponent<InputField>();
-        Multi(System.Convert.ToInt32(input1.text),System.Convert.ToInt32(input1.text));
+        Multi(System.Convert.ToInt32(input1.text),System.Convert.ToInt32(input2.text));
     }
     public void Sum(int x, int y){
         int answer = x + y;
