@@ -26,11 +26,11 @@ public class Player : MonoBehaviour
     {
         if(Input.GetKeyDown("space")){
             Health = Health-5;
-            if(Health<=0){
-                OnPlayerEvent();
-            }
-            PlayerMove();
         }
+        if(Health<=0){
+                OnPlayerEvent();
+        }
+        PlayerMove();
     }
     void PlayerMove(){
         if(Input.GetKey(KeyCode.UpArrow)){
