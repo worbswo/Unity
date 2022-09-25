@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    void OnTriggerExir(Collider other){
+    void OnTriggerExit(Collider other){
         if(other.CompareTag("CHECKPOINT")){
             GameManager.instance.NotifyEvent(GameManager.EventType.EcitTouch);
         }
