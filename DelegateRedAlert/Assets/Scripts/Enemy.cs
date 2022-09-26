@@ -6,12 +6,7 @@ public class Enemy : MonoBehaviour
 {
   
     // Start is called before the first frame update
-    void Start()
-    {
-        GameManager.instance.AddListener(GameManager.EventType.Touch,OnPlayerDetection);
-        GameManager.instance.AddListener(GameManager.EventType.Die, OnPlayerDie);
-        GameManager.instance.AddListener(GameManager.EventType.EcitTouch, onPlayerExitDetection);
-    }
+    
     void OnPlayerDetection(){
         Debug.Log("Red Alert");
         GetComponent<MeshRenderer>().material.color = Color.red;

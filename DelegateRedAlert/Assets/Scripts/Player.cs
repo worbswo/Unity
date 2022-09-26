@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 
     int health = 50;
     public float speed =3f;
+    GameObject[] enemyObj;
     public int Health{
         get{return health;}
         set{
@@ -15,9 +16,9 @@ public class Player : MonoBehaviour
         }
     }
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        enemyObj = GameObject.FindGameObjectsWithTag("ENEMY");
     }
 
     // Update is called once per frame
@@ -29,7 +30,9 @@ public class Player : MonoBehaviour
         PlayerMove();
 
         if(Health<=0){
-            GameManager.instance.NotifyEvent(GameManager.EventType.Die);
+            foreach(GameObject obj in enemyObj){
+                obj.SendMessage("OnPlayerDie",SendMessageOptions.DontRequireReceiver);
+            }
         }
     }
     void PlayerMove(){
@@ -48,13 +51,17 @@ public class Player : MonoBehaviour
     }
     void OnTriggerEnter(Collider other){
         if(other.CompareTag("CHECKPOINT")){
-            GameManager.instance.NotifyEvent(GameManager.EventType.Touch);
+            foreach(GameObject obj in enemyObj){
+                obj.SendMessage("OnPlayerDetection",SendMessageOptions.DontRequireReceiver);
+            }
         }
     }
 
     void OnTriggerExit(Collider other){
         if(other.CompareTag("CHECKPOINT")){
-            GameManager.instance.NotifyEvent(GameManager.EventType.EcitTouch);
+            foreach(GameObject obj in enemyObj){
+                obj.SendMessage("onPlayerExitDetection",SendMessageOptions.DontRequireReceiver);
+            }
         }
     }
 }
